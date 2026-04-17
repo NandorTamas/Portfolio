@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 596 385">
+  <defs>
+    <style>
+      .st0 {
+        fill: #fff;
+      }
+
+      .st1 {
+        fill: #971fb0;
+        fill-opacity: .65;
+      }
+
+      /* Left circle — slides in from left */
+      #left-circle {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: slideInLeft 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      /* Left stroke — draws itself after sliding in */
+      #left-stroke {
+        fill: none;
+        stroke: #4c005b;
+        stroke-opacity: .2;
+        stroke-width: 15px;
+        stroke-dasharray: 1300;
+        stroke-dashoffset: 1300;
+        transform-box: fill-box;
+        transform-origin: center;
+        animation:
+          slideInLeft 0.9s cubic-bezier(0.16, 1, 0.3, 1) both,
+          drawStroke 1.4s ease-out 0.4s both;
+      }
+
+      /* Right circle — slides in from right */
+      #right-circle {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: slideInRight 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+      }
+
+      /* Right stroke — draws itself after sliding in */
+      #right-stroke {
+        fill: none;
+        stroke: #4c005b;
+        stroke-opacity: .2;
+        stroke-width: 15px;
+        stroke-dasharray: 1300;
+        stroke-dashoffset: 1300;
+        transform-box: fill-box;
+        transform-origin: center;
+        animation:
+          slideInRight 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both,
+          drawStroke 1.4s ease-out 0.6s both;
+      }
+
+      /* PRODUCT label — fades up */
+      #text-product {
+        animation: fadeInUp 0.6s ease-out 0.8s both;
+      }
+
+      /* MARKETING label — fades up slightly later */
+      #text-marketing {
+        animation: fadeInUp 0.6s ease-out 1.0s both;
+      }
+
+      /* NANDOR center label — pops in with a spring */
+      #text-nandor {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: popIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 1.2s both;
+      }
+
+      @keyframes slideInLeft {
+        from {
+          transform: translateX(-50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          transform: translateX(50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes drawStroke {
+        from {
+          stroke-dashoffset: 1300;
+        }
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes popIn {
+        from {
+          opacity: 0;
+          transform: scale(0.6);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    </style>
+  </defs>
+
+  <!-- Left ellipse fill -->
+  <ellipse id="left-circle" class="st1" cx="192.55" cy="192.5" rx="192.55" ry="192.5"/>
+  <!-- Left ellipse stroke outline -->
+  <path id="left-stroke" d="M192.55,7.5c102.2,0,185.05,82.83,185.05,185s-82.85,185-185.05,185S7.5,294.67,7.5,192.5,90.35,7.5,192.55,7.5Z"/>
+
+  <!-- Right ellipse fill -->
+  <ellipse id="right-circle" class="st1" cx="403.45" cy="192.5" rx="192.55" ry="192.5"/>
+  <!-- Right ellipse stroke outline -->
+  <path id="right-stroke" d="M403.45,7.5c102.2,0,185.05,82.83,185.05,185s-82.85,185-185.05,185-185.05-82.83-185.05-185S301.24,7.5,403.45,7.5Z"/>
+
+  <!-- PRODUCT label -->
+  <path id="text-product" class="st0" d="M84.19,179.95h-2.22v4h-1.76v-11.49h3.98c2.58,0,4.24,1.31,4.24,3.71s-1.66,3.78-4.24,3.78ZM84.17,173.95h-2.21v4.51h2.21c1.55,0,2.5-.85,2.5-2.27s-.94-2.24-2.5-2.24ZM94.35,183.95h-1.76v-11.49h4.29c2.64,0,4.22,1.3,4.22,3.58,0,1.65-1.04,2.91-2.78,3.33l3.12,4.58h-2.11l-2.86-4.32h-2.11v4.32ZM94.35,173.94v4.22h2.42c1.63,0,2.56-.72,2.56-2.11s-.93-2.11-2.56-2.11h-2.42ZM110.58,184.19c-3.33,0-5.84-2.61-5.84-6s2.51-5.97,5.84-5.97,5.84,2.58,5.84,5.97-2.51,6-5.84,6ZM110.58,182.61c2.43,0,4.02-1.95,4.02-4.42s-1.58-4.38-4.02-4.38-4.02,1.92-4.02,4.38,1.58,4.42,4.02,4.42ZM124.27,183.95h-3.63v-11.49h3.63c3.66,0,5.78,2.34,5.78,5.7s-2.19,5.79-5.78,5.79ZM122.4,173.99v8.45h1.79c2.64,0,4.06-1.63,4.06-4.27s-1.41-4.18-4.06-4.18h-1.79ZM143.14,172.46v7.36c0,2.64-1.7,4.37-4.45,4.37s-4.43-1.73-4.43-4.37v-7.36h1.76v7.41c0,1.66.98,2.74,2.67,2.74s2.69-1.07,2.69-2.74v-7.41h1.76ZM152.99,184.19c-3.2,0-5.68-2.61-5.68-6s2.48-5.97,5.68-5.97c2.88,0,5.18,1.92,5.62,4.75h-1.87c-.32-1.86-1.82-3.17-3.73-3.17-2.27,0-3.87,1.84-3.87,4.38s1.6,4.42,3.87,4.42c1.9,0,3.41-1.33,3.73-3.18h1.87c-.43,2.85-2.74,4.77-5.62,4.77ZM166.99,183.95h-1.76v-9.9h-3.74v-1.58h9.25v1.58h-3.74v9.9Z"/>
+
+  <!-- MARKETING label -->
+  <path id="text-marketing" class="st0" d="M428.08,183.83l-3.63-8.78v8.78h-1.62v-11.49h2.16l3.86,9.33,3.84-9.33h2.18v11.49h-1.63v-8.8l-3.65,8.8h-1.5ZM447.65,183.83l-1.04-2.85h-4.96l-1.06,2.85h-1.78l4.4-11.49h1.94l4.37,11.49h-1.87ZM444.14,174.26l-1.97,5.3h3.9l-1.94-5.3ZM455.26,183.83h-1.76v-11.49h4.29c2.64,0,4.22,1.3,4.22,3.58,0,1.65-1.04,2.91-2.78,3.33l3.12,4.58h-2.11l-2.86-4.32h-2.11v4.32ZM455.26,173.82v4.22h2.42c1.63,0,2.56-.72,2.56-2.11s-.93-2.11-2.56-2.11h-2.42ZM468.21,183.83h-1.76v-11.49h1.76v5.31l4.86-5.31h2.03l-5.12,5.63,5.25,5.86h-2.21l-4.82-5.33v5.33ZM486.47,182.3v1.54h-7.28v-11.49h7.17v1.54h-5.41v3.26h4.93v1.54h-4.93v3.62h5.52ZM495.5,183.83h-1.76v-9.9h-3.74v-1.58h9.25v1.58h-3.74v9.9ZM504.96,183.83h-1.76v-11.49h1.76v11.49ZM517.53,183.83l-6.05-8.98v8.98h-1.63v-11.49h1.92l5.9,8.74v-8.74h1.63v11.49h-1.78ZM529.39,184.07c-3.31,0-5.87-2.51-5.87-6s2.43-5.97,5.78-5.97c2.96,0,4.96,1.81,5.66,4.19h-2.05c-.43-1.47-1.7-2.61-3.66-2.61-2.27,0-3.9,1.71-3.9,4.42,0,2.54,1.55,4.46,4.11,4.46,2.13,0,3.47-1.31,3.79-3.28h-3.97v-1.41h5.82c.06,3.68-2.19,6.19-5.71,6.19Z"/>
+
+  <!-- NANDOR center label -->
+  <path id="text-nandor" class="st0" d="M263.96,183.83l-4.58-7.17v7.17h-2.77v-11.49h3.25l4.24,6.64v-6.64h2.77v11.49h-2.91ZM279,183.83l-.7-2.13h-4.03l-.72,2.13h-3.06l4.26-11.49h3.31l4.21,11.49h-3.26ZM276.31,175.67l-1.23,3.65h2.43l-1.2-3.65ZM293.23,183.83l-4.58-7.17v7.17h-2.77v-11.49h3.25l4.24,6.64v-6.64h2.77v11.49h-2.91ZM305.26,183.83h-4.48v-11.49h4.48c3.63,0,5.92,2.34,5.92,5.68s-2.37,5.81-5.92,5.81ZM303.8,174.95v6.27h1.28c2,0,2.99-1.04,2.99-3.2,0-2.03-1.02-3.07-2.99-3.07h-1.28ZM320.4,184.07c-3.31,0-5.92-2.51-5.92-6s2.61-5.97,5.92-5.97,5.94,2.48,5.94,5.97-2.61,6-5.94,6ZM320.4,181.37c1.81,0,2.82-1.49,2.82-3.3s-1.01-3.26-2.82-3.26-2.82,1.46-2.82,3.26,1.01,3.3,2.82,3.3ZM333.32,183.83h-3.02v-11.49h4.7c3.1,0,4.88,1.39,4.88,3.84,0,1.47-.88,2.69-2.43,3.34l2.82,4.3h-3.6l-2.35-3.82h-.99v3.82ZM333.32,174.84v2.67h1.55c1.34,0,1.97-.42,1.97-1.33s-.62-1.34-1.97-1.34h-1.55Z"/>
+</svg>

@@ -1,26 +1,102 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-brand-lavender: #f7ceff;
+  --color-brand-pink: #ee99ff;
+  --color-brand-purple-deep: rgb(151, 31, 176);
+  --color-brand-purple-bright: rgb(212, 0, 255);
+  --color-brand-chip: #75068c;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  /* Extend gradient to cover full page height */
+  background: linear-gradient(
+    179.32deg,
+    rgb(212, 0, 255) 0%,
+    rgb(160, 28, 184) 40%,
+    rgb(151, 31, 176) 65%,
+    rgb(140, 20, 162) 100%
+  );
+  min-height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: transparent !important;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+.page-gradient {
+  background: transparent;
+  min-height: 100vh;
+}
+
+.font-display {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+}
+
+.font-display-regular {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+
+.tracking-label {
+  letter-spacing: 0.7px;
+}
+
+.tracking-body {
+  letter-spacing: 0.48px;
+}
+
+
+/* Geo icon — pin-drop bounce on scroll-into-view */
+@keyframes geo-pin-drop {
+  0%   { transform: translateY(-40px); opacity: 0; }
+  55%  { transform: translateY(10px);  opacity: 1; }
+  72%  { transform: translateY(-6px); }
+  85%  { transform: translateY(4px); }
+  93%  { transform: translateY(-2px); }
+  100% { transform: translateY(0);    opacity: 1; }
+}
+
+.geo-pin-drop {
+  animation: geo-pin-drop 0.75s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Password prompt — subtle rise (opacity handled by wrapper) */
+@keyframes pw-fly-in {
+  from { transform: translateY(-12px); }
+  to   { transform: translateY(0); }
+}
+
+.pw-fly-in {
+  animation: pw-fly-in 0.35s ease both;
+}
+
+/* Password prompt — Apple-style wrong-password shake */
+@keyframes pw-shake {
+  0%, 100% { transform: translateX(0); }
+  12%       { transform: translateX(-10px); }
+  28%       { transform: translateX(10px); }
+  44%       { transform: translateX(-8px); }
+  60%       { transform: translateX(8px); }
+  74%       { transform: translateX(-4px); }
+  88%       { transform: translateX(4px); }
+}
+
+.pw-shake {
+  animation: pw-shake 0.5s ease both;
+}
+
+/* Password digit inputs */
+.pw-digit-input {
+  caret-color: transparent;
+}
+.pw-digit-input:focus {
+  caret-color: #ffffff;
+  border-color: rgba(238, 153, 255, 0.7) !important;
+  outline: none;
 }

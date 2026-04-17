@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp -r /Users/stungmedia/Desktop/NandorTamasCom/website-temp/. /Users/stungmedia/Desktop/NandorTamasCom/Website/)",
+      "Bash(rm -rf /Users/stungmedia/Desktop/NandorTamasCom/website-temp)",
+      "Bash(mkdir -p /Users/stungmedia/Desktop/NandorTamasCom/Website/public/assets)",
+      "Bash(curl -s -o nandor-photo-2.png \"https://www.figma.com/api/mcp/asset/0bce33d1-ea7b-4cad-b7a0-5b8f725f1983\")",
+      "Bash(curl -s -o line-accent.png \"https://www.figma.com/api/mcp/asset/89b6b8ab-351a-4a0d-9edd-fc2524c4b12c\")",
+      "Bash(curl -s -o ellipse.png \"https://www.figma.com/api/mcp/asset/6a5e4981-5840-4aaa-bb6e-4d50892cce57\")",
+      "Bash(curl -s -o line-purple.png \"https://www.figma.com/api/mcp/asset/bbbcd5e6-cb31-4b89-bfa5-32412fb533ac\")",
+      "Bash(npm run:*)",
+      "Bash(npm install:*)",
+      "Bash(node:*)",
+      "Bash(npx playwright:*)"
+    ]
+  }
+}

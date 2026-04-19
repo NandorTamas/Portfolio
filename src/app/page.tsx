@@ -263,7 +263,7 @@ function Topbar() {
       <nav
         className="flex items-center gap-5"
         aria-label="Social links"
-        style={{ marginLeft: isMobile ? "auto" : undefined }}
+        style={{ margin: isMobile ? "0 auto" : undefined }}
       >
         <NavIcon src="/assets/case-studies-icon.svg" label="Case Studies" href="#case-studies" />
         <NavIcon src="/assets/resume-icon.svg" label="Résumé" href="/assets/Tamas-Resume-2026.pdf" download />
@@ -320,6 +320,7 @@ function HeroSection() {
             style={{
               maxWidth: isDesktop ? "707px" : "100%",
               width: isDesktop ? undefined : "100%",
+              textAlign: isMobile ? "center" : undefined,
             }}
           >
             <p
@@ -391,7 +392,7 @@ function HeroSection() {
               alt="Venn diagram: Product, Nandor, Marketing — where product and marketing stop competing and start working"
               style={{
                 display: "block",
-                width: isMobile ? "min(100%, 300px)" : isTablet ? "420px" : "486px",
+                width: isMobile ? "486px" : isTablet ? "420px" : "486px",
                 height: "auto",
               }}
             />
@@ -450,8 +451,8 @@ function HeroSection() {
           <div
             style={{
               position: "relative",
-              width: isMobile ? "280px" : "360px",
-              height: isMobile ? "280px" : "360px",
+              width: isMobile ? "475px" : "360px",
+              height: isMobile ? "475px" : "360px",
               flexShrink: 0,
             }}
           >
@@ -678,7 +679,7 @@ function CaseStudyItem({
       onClick={onClick}
       style={{ cursor: onClick ? "pointer" : "default" }}
     >
-      <div className="py-8" style={{ letterSpacing: "0.48px" }}>
+      <div className="py-8" style={{ letterSpacing: "0.48px", display: "flex", flexDirection: "column" }}>
         <p
           style={{
             fontSize: isMobile ? "16px" : "24px",
@@ -689,7 +690,7 @@ function CaseStudyItem({
           }}
         >
           {category}
-          {comingSoon && <ComingSoonChip />}
+          {!isMobile && comingSoon && <ComingSoonChip />}
         </p>
         <p
           style={{
@@ -714,6 +715,26 @@ function CaseStudyItem({
         >
           {year} • {role}
         </p>
+        {isMobile && comingSoon && (
+          <div style={{ marginTop: "12px", display: "flex", alignItems: "flex-start" }}>
+            <span
+              className="inline-flex items-center justify-center rounded-full"
+              style={{
+                background: "#75068c",
+                height: "17px",
+                padding: "0 10px",
+                fontSize: "10px",
+                fontWeight: 500,
+                letterSpacing: "0.5px",
+                color: "#f7ceff",
+                textTransform: "uppercase",
+                lineHeight: "17px",
+              }}
+            >
+              Coming Soon
+            </span>
+          </div>
+        )}
       </div>
       {!noBorder && (
         <div

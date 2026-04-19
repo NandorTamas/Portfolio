@@ -159,7 +159,7 @@ function NavIcon({
   const { isMobile } = useBreakpoint();
 
   const isHashLink = href.startsWith("#");
-  const scrollDuration = isMobile ? 1200 : 800; // Slower on mobile
+  const scrollDuration = isMobile ? 900 : 800; // Slightly slower on mobile
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (isHashLink) {

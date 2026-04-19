@@ -42,6 +42,35 @@ function useScrollReveal<T extends HTMLElement>(threshold = 0.15) {
   return { ref, inView };
 }
 
+// ─── Smooth Scroll Utility ────────────────────────────────────────────────────
+
+function smoothScroll(targetId: string, duration: number = 800) {
+  const target = document.getElementById(targetId);
+  if (!target) return;
+
+  const start = window.scrollY;
+  const end = target.getBoundingClientRect().top + window.scrollY;
+  const distance = end - start;
+  const startTime = performance.now();
+
+  function scroll(currentTime: number) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    // Easing function: cubic easeInOut
+    const ease = progress < 0.5
+      ? 4 * progress * progress * progress
+      : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+    window.scrollTo(0, start + distance * ease);
+
+    if (progress < 1) {
+      requestAnimationFrame(scroll);
+    }
+  }
+
+  requestAnimationFrame(scroll);
+}
+
 // ─── Case Study Data ──────────────────────────────────────────────────────────
 
 interface CaseStudyData {
@@ -127,6 +156,18 @@ function NavIcon({
   download?: boolean;
 }) {
   const [hovered, setHovered] = useState(false);
+  const { isMobile } = useBreakpoint();
+
+  const isHashLink = href.startsWith("#");
+  const scrollDuration = isMobile ? 1200 : 800; // Slower on mobile
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isHashLink) {
+      e.preventDefault();
+      const targetId = href.slice(1); // Remove the # prefix
+      smoothScroll(targetId, scrollDuration);
+    }
+  };
 
   return (
     <div style={{ position: "relative", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
@@ -136,6 +177,7 @@ function NavIcon({
         rel={target === "_blank" ? "noopener noreferrer" : undefined}
         download={download || undefined}
         aria-label={label}
+        onClick={handleClick}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         style={{ display: "flex", alignItems: "center", justifyContent: "center" }}

@@ -42,6 +42,34 @@ function useScrollReveal<T extends HTMLElement>(threshold = 0.15) {
   return { ref, inView };
 }
 
+// ─── Smooth Scroll Utility ────────────────────────────────────────────────────
+
+function smoothScroll(targetId: string, duration: number) {
+  const target = document.getElementById(targetId);
+  if (!target) return;
+
+  const start = window.scrollY;
+  const targetTop = target.getBoundingClientRect().top + window.scrollY;
+  const distance = targetTop - start;
+  const startTime = Date.now();
+
+  const animate = () => {
+    const elapsed = Date.now() - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+
+    // Simple ease-out-cubic for smooth deceleration
+    const easeProgress = 1 - Math.pow(1 - progress, 3);
+
+    window.scrollTo(0, start + distance * easeProgress);
+
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+    }
+  };
+
+  requestAnimationFrame(animate);
+}
+
 // ─── Case Study Data ──────────────────────────────────────────────────────────
 
 interface CaseStudyData {
@@ -127,6 +155,16 @@ function NavIcon({
   download?: boolean;
 }) {
   const [hovered, setHovered] = useState(false);
+  const { isMobile } = useBreakpoint();
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // For hash links on mobile, use custom scroll; on desktop use native smooth scroll
+    if (isMobile && href.startsWith("#")) {
+      e.preventDefault();
+      const targetId = href.slice(1);
+      smoothScroll(targetId, 600); // 600ms for mobile
+    }
+  };
 
   return (
     <div style={{ position: "relative", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
@@ -136,6 +174,7 @@ function NavIcon({
         rel={target === "_blank" ? "noopener noreferrer" : undefined}
         download={download || undefined}
         aria-label={label}
+        onClick={handleClick}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         style={{ display: "flex", alignItems: "center", justifyContent: "center" }}

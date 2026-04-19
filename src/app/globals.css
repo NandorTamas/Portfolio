@@ -21,6 +21,13 @@ html {
   min-height: 100%;
 }
 
+/* Disable smooth scroll on mobile to prevent jerkiness */
+@media (max-width: 767px) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   background: transparent !important;
   margin: 0;

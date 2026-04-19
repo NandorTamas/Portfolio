@@ -355,6 +355,7 @@ function HeroSection() {
                 height: "1px",
                 background: "#75068C",
                 marginTop: "40px",
+                margin: isMobile ? "40px auto 0" : "40px 0 0",
               }}
             />
 

@@ -10,7 +10,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Nandor Tamas — Director of Design",
+  title: "Nandor Tamas | Design Director - AI, Platform & Systems",
   description:
     "Portfolio of Nandor Tamas, Director of Design specializing in AI, Platform, Systems, and Brand Experience.",
 };

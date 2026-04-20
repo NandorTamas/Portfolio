@@ -305,7 +305,8 @@ function Topbar() {
         style={{ margin: isMobile ? "0 auto" : undefined }}
       >
         <NavIcon src="/assets/case-studies-icon.svg" label="Case Studies" href="#case-studies" />
-        <NavIcon src="/assets/resume-icon.svg" label="Résumé" href="/assets/Tamas-Resume-2026.pdf" download />
+        {/* Resume hidden until ready to post */}
+        {/* <NavIcon src="/assets/resume-icon.svg" label="Résumé" href="/assets/Tamas-Resume-2026.pdf" download /> */}
         <NavIcon src="/assets/email-icon.svg" label="Email" href="mailto:nandor@stungmedia.com" />
         <NavIcon src="/assets/linkedin-icon.svg" label="LinkedIn" href="https://www.linkedin.com/in/nandortamas/" target="_blank" />
       </nav>

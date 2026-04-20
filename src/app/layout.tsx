@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   title: "Nandor Tamas | Design Director - AI, Platform & Systems",
   description:
     "Portfolio of Nandor Tamas, Director of Design specializing in AI, Platform, Systems, and Brand Experience.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({

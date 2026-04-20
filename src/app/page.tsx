@@ -1646,12 +1646,28 @@ function OliveInkContent({ isMobile, isTablet }: { isMobile: boolean; isTablet: 
         The migration story is the shift from a legacy, fragmented visual language to a single, modern system that underpins the product portfolio.
       </p>
 
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/assets/IMAGE2-Olive2Ink.svg"
-        alt="Olive to Ink migration diagram"
-        style={{ width: "100%", borderRadius: "16px", margin: "0 0 64px", display: "block" }}
-      />
+      {/* IMAGE 2: Two-column layout on desktop, stacked on mobile */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+          gap: "24px",
+          margin: "0 0 64px",
+        }}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/IMAGE2a.svg"
+          alt="Olive to Ink migration diagram - left"
+          style={{ width: "100%", borderRadius: "16px", display: "block" }}
+        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/IMAGE2b.svg"
+          alt="Olive to Ink migration diagram - right"
+          style={{ width: "100%", borderRadius: "16px", display: "block" }}
+        />
+      </div>
 
       {hr}
 
@@ -1668,12 +1684,28 @@ function OliveInkContent({ isMobile, isTablet }: { isMobile: boolean; isTablet: 
         "Slow, uneven adoption, with only ~23% of key surfaces effectively aligned to Ink (after 5 years from introduction), and an implied, combined 12‑year horizon to finish the job if nothing changed.",
       ]} />
 
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/assets/IMAGE3-Olive2Ink-2.png"
-        alt="eSign Send Home with Visual Analyzer showing mixed Olive and Ink components"
-        style={{ width: "100%", height: "auto", margin: "0 0 64px", display: "block" }}
-      />
+      {/* IMAGE 3: Two-column layout on desktop (1633:1870 ratio), stacked on mobile */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: isMobile ? "1fr" : "1633fr 1870fr",
+          gap: "24px",
+          margin: "0 0 64px",
+        }}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/IMAGE3a.png"
+          alt="eSign Send Home showing mixed Olive and Ink components - left"
+          style={{ width: "100%", height: "auto", borderRadius: "16px", display: "block" }}
+        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/IMAGE3b.png"
+          alt="Visual Analyzer showing component breakdown - right"
+          style={{ width: "100%", height: "auto", borderRadius: "16px", display: "block" }}
+        />
+      </div>
 
       {hr}
 

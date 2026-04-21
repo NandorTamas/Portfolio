@@ -52,18 +52,14 @@ body {
 }
 
 
-/* Geo icon — pin-drop bounce on scroll-into-view */
+/* Geo icon — smooth drop on scroll-into-view */
 @keyframes geo-pin-drop {
   0%   { transform: translateY(-40px); opacity: 0; }
-  55%  { transform: translateY(10px);  opacity: 1; }
-  72%  { transform: translateY(-6px); }
-  85%  { transform: translateY(4px); }
-  93%  { transform: translateY(-2px); }
   100% { transform: translateY(0);    opacity: 1; }
 }
 
 .geo-pin-drop {
-  animation: geo-pin-drop 0.75s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  animation: geo-pin-drop 0.6s ease-out both;
 }
 
 /* Password prompt — subtle rise (opacity handled by wrapper) */

@@ -265,6 +265,8 @@ function Topbar() {
         paddingTop: isMobile ? "28px" : "60px",
         paddingLeft: "clamp(16px, 5vw, 277px)",
         paddingRight: "clamp(16px, 5vw, 277px)",
+        maxWidth: "1200px",
+        margin: "0 auto",
       }}
     >
       {/* Eames Quote — hidden on smallest screens to avoid crowding */}

@@ -2439,7 +2439,7 @@ export default function Home() {
         }}
       >
         <Topbar />
-        <main style={{ maxWidth: "1300px", margin: "0 auto", width: "100%" }}>
+        <main style={{ maxWidth: "1200px", margin: "0 auto", width: "100%" }}>
           <HeroSection />
           <Reveal><LocationSection isMobile={isMobile} isTablet={isTablet} /></Reveal>
           <Reveal><AboutIntroSection isMobile={isMobile} isTablet={isTablet} /></Reveal>

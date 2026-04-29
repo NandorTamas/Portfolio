@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -25,6 +26,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${dmSans.variable} antialiased`}>
+      <head>
+        {/* Google Analytics */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-8B5WCV709S" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-8B5WCV709S');`}
+        </Script>
+      </head>
       <body
         className="min-h-screen"
         style={{ fontFamily: "var(--font-dm-sans), system-ui, sans-serif" }}

@@ -2326,7 +2326,7 @@ function Footer({ isMobile, isTablet }: { isMobile: boolean; isTablet: boolean }
           margin: 0,
         }}
       >
-        &copy; 2026 Nandor Tamas &bull; Designed in Figma and coded with Claude CoWork.
+        &copy; 2026 Nandor Tamas
       </p>
     </footer>
   );

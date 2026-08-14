@@ -387,7 +387,7 @@ function HeroSection() {
                 lineHeight: "normal",
               }}
             >
-              Director of Design • AI, Platform, Systems, and Brand Experience
+              Creative & Visual Design Leader | Product UI, Brand & AI Experiences
             </p>
 
             {/* Decorative line */}
